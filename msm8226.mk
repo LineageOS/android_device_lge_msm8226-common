@@ -1,0 +1,264 @@
+#
+# Copyright (C) 2013 The CyanogenMod Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Specific overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml \
+    frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+
+# Configs
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/prebuilt/etc/audio_effects.conf:system/etc/audio_effects.conf \
+    $(LOCAL_PATH)/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/prebuilt/etc/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf \
+    $(LOCAL_PATH)/prebuilt/etc/sec_config:system/etc/sec_config \
+    $(LOCAL_PATH)/prebuilt/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    $(LOCAL_PATH)/prebuilt/etc/nfc-nci.conf:system/etc/nfc-nci.conf \
+    $(LOCAL_PATH)/prebuilt/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
+    $(LOCAL_PATH)/prebuilt/etc/nfcee_access.xml:system/etc/nfcee_access.xml
+
+# Ramdisk
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
+    $(LOCAL_PATH)/rootdir/init.qcom.usb.rc:root/init.w7.usb.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc \
+    $(LOCAL_PATH)/rootdir/init.qcom.ril.sh:system/etc/init.qcom.ril.sh
+
+# GPS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
+    $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
+    $(LOCAL_PATH)/gps/quipc.conf:system/etc/quipc.conf \
+    $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
+
+# Qcom wlan
+ifeq ($(BOARD_HAS_QCOM_WCNSS),true)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_boot.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv_boot.bin \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/prebuilt/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    $(LOCAL_PATH)/prebuilt/etc/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
+    $(LOCAL_PATH)/rootdir/init.wcnss.rc:root/init.wcnss.rc
+
+PRODUCT_PROPERTY_OVERRIDES += ro.qualcomm.bt.hci_transport=smd
+
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni \
+    wcnss_service \
+    libwcnss_qmi
+endif
+
+
+# Data
+PRODUCT_PACKAGES += \
+    librmnetctl \
+    rmnetcli
+
+# Audio
+PRODUCT_PACKAGES += \
+    audiod \
+    audio.a2dp.default \
+    audio_policy.msm8226 \
+    audio.primary.msm8226 \
+    audio.r_submix.default \
+    audio.usb.default \
+    libqcompostprocbundle \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    tinymix
+
+# Misc dependency packages
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    curl \
+    libnl_2 \
+    libxml \
+    libxml2 \
+    libtinyxml \
+    libbson \
+    libboringssl-compat
+
+# Misc
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
+
+# Keystore
+PRODUCT_PACKAGES += keystore.msm8226
+
+# Charger
+PRODUCT_PACKAGES += charger charger_res_images
+
+# GPS
+PRODUCT_PACKAGES += \
+    gps.msm8226 \
+    gps.conf
+
+# HAL
+PRODUCT_PACKAGES += \
+    copybit.msm8226\
+    gralloc.msm8226 \
+    hwcomposer.msm8226 \
+    lights.msm8226 \
+    memtrack.msm8226 \
+    power.msm8226
+
+# Utilities
+PRODUCT_PACKAGES += \
+    mkfs.f2fs \
+    fsck.f2fs \
+    fibmap.f2fs \
+    make_ext4fs \
+    e2fsck \
+    setup_fs
+
+# QCOM Display
+PRODUCT_PACKAGES += \
+    libgenlock \
+    libmemalloc \
+    liboverlay \
+    libqdutils \
+    libtilerenderer
+
+# OMX
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libdashplayer \
+    libdivxdrmdecrypt \
+    libextmedia_jni \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVdecHevc \
+    libOmxVenc \
+    libOmxVidcCommon \
+    libqcmediaplayer \
+    libstagefrighthw \
+    qcmediaplayer
+
+PRODUCT_BOOT_JARS += \
+    qcmediaplayer
+
+#wifi
+PRODUCT_PACKAGES += \
+    hostapd.accept \
+    hostapd.deny \
+    hostapd_default.conf \
+    libnetcmdiface
+
+ifeq ($(BOARD_HAS_NFC), true) 
+# NFC packages
+PRODUCT_PACKAGES += \
+    NfcNci \
+    Tag \
+    nfc_nci.pn54x.default \
+    com.android.nfc_extras
+
+NFCEE_ACCESS_PATH := $(LOCAL_PATH)/prebuilt/etc/nfcee_access.xml
+endif
+
+# IO Scheduler
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.io.scheduler=bfq
+
+# System properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.hwc.mdpcomp.enable=true \
+    persist.timed.enable=true \
+    ro.opengles.version=196608 \
+    ro.telephony.default_network=3 \
+    persist.radio.proc_nw_scan=0 \
+    ro.use_data_netmgrd=true \
+    persist.data.netmgrd.qos.enable=true \
+    persist.data.tcpackprio.enable=true \
+    ro.data.large_tcp_window_size=true \
+    telephony.lteOnGsmDevice=0 \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15 \
+    ro.qualcomm.perf.cores_online=2 \
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    ro.telephony.call_ring.multiple=0 
+
+# Audio properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    mm.enable.smoothstreaming=true \
+    mm.enable.qcom_parser=3310129 \
+    ro.qc.sdk.audio.fluencetype=endfire \
+    persist.audio.fluence.voicecall=true \
+    audio.offload.buffer.size.kb=32 \
+    av.offload.enable=true \
+    av.streaming.offload.enable=true \
+    use.voice.path.for.pcm.voip=true \
+    audio.offload.multiple.enabled=false \
+    audio.offload.gapless.enabled=true \
+    tunnel.audio.encode=true \
+    media.aac_51_output_enabled=true \
+    audio.offload.pcm.16bit.enable=true \
+    audio.offload.pcm.24bit.enable=true \
+    use.voice.path.for.pcm.voip=true \
+    persist.audio.calfile0=/etc/Bluetooth_cal.acdb \
+    persist.audio.calfile1=/etc/General_cal.acdb \
+    persist.audio.calfile2=/etc/Global_cal.acdb \
+    persist.audio.calfile3=/etc/Handset_cal.acdb \
+    persist.audio.calfile4=/etc/Hdmi_cal.acdb \
+    persist.audio.calfile5=/etc/Headset_cal.acdb \
+    persist.audio.calfile6=/etc/Speaker_cal.acdb
+
+$(call inherit-product, vendor/lge/msm8226-common/msm8226-common-vendor.mk)
+

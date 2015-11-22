@@ -1,0 +1,21 @@
+# Copyright (c) 2015, The Linux Foundation. All rights reserved.
+
+on boot
+
+service wcnss-service /system/bin/wcnss_service
+   class late_start
+   user root
+   group system wifi
+   oneshot
+
+service config_bluetooth /system/bin/sh /system/etc/init.zetaw.bt.sh "onboot"
+    class core
+    user root
+    oneshot
+
+service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
+    class late_start
+    user system
+    group system
+    disabled
+    oneshot
