@@ -213,52 +213,8 @@ PRODUCT_PACKAGES += \
 NFCEE_ACCESS_PATH := $(LOCAL_PATH)/prebuilt/etc/nfcee_access.xml
 endif
 
-# IO Scheduler
-PRODUCT_PROPERTY_OVERRIDES += \
-    sys.io.scheduler=bfq
-
 # System properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.hwc.mdpcomp.enable=true \
-    persist.timed.enable=true \
-    ro.opengles.version=196608 \
-    ro.telephony.default_network=3 \
-    persist.radio.proc_nw_scan=0 \
-    ro.use_data_netmgrd=true \
-    persist.data.netmgrd.qos.enable=true \
-    persist.data.tcpackprio.enable=true \
-    ro.data.large_tcp_window_size=true \
-    telephony.lteOnGsmDevice=0 \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15 \
-    ro.qualcomm.perf.cores_online=2 \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.telephony.call_ring.multiple=0 
-
-# Audio properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    mm.enable.smoothstreaming=true \
-    mm.enable.qcom_parser=3310129 \
-    ro.qc.sdk.audio.fluencetype=endfire \
-    persist.audio.fluence.voicecall=true \
-    audio.offload.buffer.size.kb=32 \
-    av.offload.enable=true \
-    av.streaming.offload.enable=true \
-    use.voice.path.for.pcm.voip=true \
-    audio.offload.multiple.enabled=false \
-    audio.offload.gapless.enabled=true \
-    tunnel.audio.encode=true \
-    media.aac_51_output_enabled=true \
-    audio.offload.pcm.16bit.enable=true \
-    audio.offload.pcm.24bit.enable=true \
-    use.voice.path.for.pcm.voip=true \
-    persist.audio.calfile0=/etc/Bluetooth_cal.acdb \
-    persist.audio.calfile1=/etc/General_cal.acdb \
-    persist.audio.calfile2=/etc/Global_cal.acdb \
-    persist.audio.calfile3=/etc/Handset_cal.acdb \
-    persist.audio.calfile4=/etc/Hdmi_cal.acdb \
-    persist.audio.calfile5=/etc/Headset_cal.acdb \
-    persist.audio.calfile6=/etc/Speaker_cal.acdb
+-include $(LOCAL_PATH)/system_prop.mk
 
 $(call inherit-product, vendor/lge/msm8226-common/msm8226-common-vendor.mk)
 
