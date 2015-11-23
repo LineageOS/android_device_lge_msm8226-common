@@ -52,6 +52,11 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+WITH_DEXPREOPT := true
+endif
+
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
