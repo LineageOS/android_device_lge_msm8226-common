@@ -197,10 +197,16 @@ PRODUCT_BOOT_JARS += \
 
 #wifi
 PRODUCT_PACKAGES += \
-    hostapd.accept \
-    hostapd.deny \
+    dhcpcd.conf \
+    libwpa_client \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf \
+    wpa_supplicant_overlay.conf \
+    p2p_supplicant_overlay.conf \
     hostapd_default.conf \
-    libnetcmdiface
+    hostapd.accept \
+    hostapd.deny
 
 ifeq ($(BOARD_HAS_NFC), true) 
 # NFC packages
