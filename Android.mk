@@ -15,7 +15,7 @@
 #
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter w7 jag3gd jagnm ,$(TARGET_DEVICE)),)
+ifneq ($(filter w7 jag3gd jagnm g2m ,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
