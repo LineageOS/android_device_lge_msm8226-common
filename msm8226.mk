@@ -73,6 +73,7 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
     $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/gps/quipc.conf:system/etc/quipc.conf \
@@ -144,8 +145,7 @@ PRODUCT_PACKAGES += charger charger_res_images
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8226 \
-    gps.conf
+    gps.msm8226
 
 # HAL
 PRODUCT_PACKAGES += \
