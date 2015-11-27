@@ -556,6 +556,13 @@ service adsprpcd /system/bin/adsprpcd
    user media
    group media
 
+#Load MAC's for BRCM
+service conn_init /system/bin/hwaddrs
+    user root
+    group system wifi bluetooth net_bt_admin misc net_bt_stack
+    disabled
+    oneshot
+
 # Charger
 on charger
     wait /dev/block/platform/msm_sdcc.1/by-name/system
