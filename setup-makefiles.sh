@@ -57,8 +57,7 @@ done
 DEVICE_PACKAGE_OVERLAYS := vendor/$VENDOR/$DEVICE/overlay
 
 PRODUCT_PACKAGES += \\
-    shutdownlistener \\
-    com.qualcomm.location
+    shutdownlistener
 
 PRODUCT_PACKAGES += \\
     libtime_genoff \\
@@ -122,17 +121,6 @@ EOF
 ifneq (\$(filter w7,\$(TARGET_DEVICE)),)
 
 LOCAL_PATH := \$(call my-dir)
-
-include \$(CLEAR_VARS)
-LOCAL_MODULE := com.qualcomm.location
-LOCAL_MODULE_OWNER := $VENDOR
-LOCAL_SRC_FILES := proprietary/priv-app/com.qualcomm.location/com.qualcomm.location.apk
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
-LOCAL_MODULE_CLASS := APPS
-LOCAL_CERTIFICATE := platform
-LOCAL_PRIVILEGED_MODULE := true
-include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := qcrilmsgtunnel

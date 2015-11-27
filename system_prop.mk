@@ -28,6 +28,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
     rild.libargs=-d[SPACE]/dev/smd0
 
+# GPS
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.gps.qc_nlp_in_use=0 \
+    ro.gps.agps_provider=1
+
 # Audio properties
 PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.smoothstreaming=true \
