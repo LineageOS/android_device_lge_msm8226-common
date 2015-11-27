@@ -12,10 +12,3 @@ service config_bluetooth /system/bin/sh /system/etc/init.zetaw.bt.sh "onboot"
     class core
     user root
     oneshot
-
-service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
-    class late_start
-    user system
-    group system
-    disabled
-    oneshot
