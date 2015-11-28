@@ -61,6 +61,9 @@ endif
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
+# QCMediaPlayer
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+
 # Offmode Charging
 COMMON_GLOBAL_CFLAGS += \
     -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' \
