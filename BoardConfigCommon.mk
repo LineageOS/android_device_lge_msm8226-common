@@ -159,7 +159,7 @@ EXTENDED_FONT_FOOTPRINT := true
 BOARD_USES_QC_TIME_SERVICES := true
 
 # Use HW crypto for ODE
-TARGET_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION := false
 
 # SELinux policies
 # qcom sepolicy
