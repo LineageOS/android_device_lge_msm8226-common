@@ -23,7 +23,8 @@ public class VibratorHW {
     private static String NFORCE_PATH = "/sys/devices/platform/tspdrv/nforce_timed";
 
     public static boolean isSupported() {
-        return true;
+        File f = new File(NFORCE_PATH);
+        return f.exists();
     }
 
     public static int getMaxIntensity()  {
