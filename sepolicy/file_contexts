@@ -15,3 +15,8 @@
 /sys/devices/platform/tspdrv/nforce_timed		u:object_r:vibe_dev:s0
 
 /sns(/.*)?			u:object_r:sensors_persist_file:s0
+
+/data/misc/bdaddr		u:object_r:hwaddrs_data_file:s0
+/data/misc/wifi/config		u:object_r:hwaddrs_data_file:s0
+/system/bin/hwaddrs		u:object_r:hwaddrs_exec:s0
+/system/bin/bdaddr_loader	u:object_r:hwaddrs_exec:s0

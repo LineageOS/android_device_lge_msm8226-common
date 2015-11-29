@@ -1,0 +1,13 @@
+type hwaddrs, domain;
+type hwaddrs_exec, exec_type, file_type;
+init_daemon_domain(hwaddrs)
+
+allow hwaddrs block_device:dir search;
+allow hwaddrs misc_partition:blk_file r_file_perms;
+allow hwaddrs hwaddrs_data_file:file rw_file_perms;
+allow hwaddrs property_socket:sock_file write;
+allow hwaddrs wifi_data_file:dir { search write add_name };
+allow hwaddrs wifi_data_file:file { write create open };
+allow hwaddrs init:unix_stream_socket connectto;
+allow hwaddrs bluetooth_prop:property_service set;
+file_type_auto_trans(hwaddrs, system_data_file, hwaddrs_data_file);

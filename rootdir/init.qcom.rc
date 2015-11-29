@@ -195,9 +195,9 @@ on boot
     chmod 0666 /sys/class/leds/red/blink
     chown system system /sys/class/leds/red/brightness
     chmod 0666 /sys/class/leds/red/brightness
-    chmod system system /sys/class/leds/red/ramp_step_ms
+    chown system system /sys/class/leds/red/ramp_step_ms
     chmod 0666 /sys/class/leds/red/ramp_step_ms
-    chmod system system /sys/class/leds/red/duty_pcts
+    chown system system /sys/class/leds/red/duty_pcts
     chmod 0666 /sys/class/leds/red/duty_pcts
 
 on fs
@@ -557,11 +557,22 @@ service adsprpcd /system/bin/adsprpcd
    group media
 
 #Load MAC's for BRCM
-service conn_init /system/bin/hwaddrs
+service brcm_hwaddrs /system/bin/hwaddrs
     user root
     group system wifi bluetooth net_bt_admin misc net_bt_stack
-    disabled
     oneshot
+    class late_start
+
+service brcm_hwaddrs2 /system/bin/bdaddr_loader
+    user root
+    group system wifi bluetooth net_bt_admin misc net_bt_stack
+    oneshot
+    disabled
+
+on property:init.svc.brcm_hwaddrs=stopped
+    chmod 644 /data/misc/wifi/config
+    chmod 644 /data/misc/bdaddr
+    start brcm_hwaddrs2
 
 # Charger
 on charger
