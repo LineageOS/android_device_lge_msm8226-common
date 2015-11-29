@@ -8,7 +8,7 @@ service wcnss-service /system/bin/wcnss_service
    group system wifi
    oneshot
 
-service config_bluetooth /system/bin/sh /system/etc/init.zetaw.bt.sh "onboot"
+service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
     class core
     user root
     oneshot
