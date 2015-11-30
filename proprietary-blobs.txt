@@ -94,14 +94,8 @@ vendor/lib/drm/libdrmwvmplugin.so
 
 # Media
 lib/libqomx_core.so
--vendor/lib/libHevcSwDecoder.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAmrwbplusDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxWmaDec.so
 
 # ADSP
 bin/adsprpcd
