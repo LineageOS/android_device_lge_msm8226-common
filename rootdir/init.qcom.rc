@@ -200,6 +200,10 @@ on boot
     chown system system /sys/class/leds/red/duty_pcts
     chmod 0666 /sys/class/leds/red/duty_pcts
 
+    # Vibration Control
+    chown system system /sys/devices/platform/tspdrv/nforce_timed
+    chmod 0666 /sys/devices/platform/tspdrv/nforce_timed
+
 on fs
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
