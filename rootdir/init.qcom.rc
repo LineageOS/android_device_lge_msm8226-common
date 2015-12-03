@@ -204,6 +204,10 @@ on boot
     chown system system /sys/devices/platform/tspdrv/nforce_timed
     chmod 0666 /sys/devices/platform/tspdrv/nforce_timed
 
+    # Adaptive LMK
+    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+    
 on fs
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
