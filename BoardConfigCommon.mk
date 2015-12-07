@@ -42,6 +42,8 @@ TARGET_CPU_MEMCPY_BASE_OPT_DISABLE := true
 TARGET_CPU_VARIANT := krait
 MALLOC_IMPL := dlmalloc
 USE_CLANG_PLATFORM_BUILD := true
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 # Kernel image
 BOARD_KERNEL_SEPARATED_DT := true
