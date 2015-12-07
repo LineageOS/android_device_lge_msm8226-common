@@ -29,7 +29,7 @@ import init.qcom.usb.rc
 import init.wcnss.rc
 
 on early-init
-    export LD_SHIM_LIBS /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so
+    export LD_PRELOAD "/system/lib/libboringssl-compat.so"
 
 on init
 
@@ -200,6 +200,14 @@ on boot
     chown system system /sys/class/leds/red/duty_pcts
     chmod 0666 /sys/class/leds/red/duty_pcts
 
+    # Vibration Control
+    chown system system /sys/devices/platform/tspdrv/nforce_timed
+    chmod 0666 /sys/devices/platform/tspdrv/nforce_timed
+
+    # Adaptive LMK
+    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+    
 on fs
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
@@ -508,11 +516,6 @@ on property:ro.bootmode=chargerlogo
     class_reset main
     class_reset late_start
     class_start charger
-
-service loc_launcher /system/bin/loc_launcher
-    #loc_launcher will start as root and set its uid to gps
-    class late_start
-    group gps qcom_oncrpc inet net_raw diag net_admin wifi
 
 service qseecomd /system/bin/qseecomd
     class late_start
