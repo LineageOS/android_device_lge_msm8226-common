@@ -29,13 +29,15 @@ import init.qcom.usb.rc
 import init.wcnss.rc
 
 on early-init
-    export LD_PRELOAD "/system/lib/libboringssl-compat.so"
+    export LD_SHIM_LIBS /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so
 
 on init
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
+
+    mkdir /firmware 0771 system system
 
     # NFC fix
     symlink /dev/pn547 /dev/pn544
@@ -223,14 +225,6 @@ on fs
     swapon_all fstab.qcom
 
     write /proc/sys/vm/page-cluster 0
-
-    # Keeping following partitions outside fstab file. As user may not have
-    # these partition flashed on the device. Failure to mount any partition in fstab file
-    # results in failure to launch late-start class.
-
-    mkdir /firmware 0771 system system
-    mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
-
 on post-fs-data
 
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
