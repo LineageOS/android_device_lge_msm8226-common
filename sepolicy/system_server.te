@@ -9,4 +9,5 @@ allow system_server unlabeled:lnk_file read;
 allow system_server sysfs_usb_supply:dir search;
 allow system_server sysfs_usb_supply:file { read getattr open };
 allow system_server sensors_data_file:fifo_file { read getattr write unlink open };
+allow system_server sensors_data_file:dir { getattr setattr search};
 allow system_server hwaddrs_data_file:file { read getattr open };

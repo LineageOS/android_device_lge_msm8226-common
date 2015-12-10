@@ -21,9 +21,4 @@
 /system/bin/hwaddrs		u:object_r:hwaddrs_exec:s0
 /system/bin/bdaddr_loader	u:object_r:hwaddrs_exec:s0
 
-/data/misc/sensor/fifo_cmd		u:object_r:sensors_data_file:s0
-/data/misc/sensor/fifo_dat		u:object_r:sensors_data_file:s0
-/data/misc/sensor/profile_calib_a	u:object_r:sensors_data_file:s0
-/data/misc/sensor/profile_calib_m	u:object_r:sensors_data_file:s0
-/data/misc/sensor/sensord.err		u:object_r:sensors_data_file:s0
-/data/misc/sensor/.id			u:object_r:sensors_data_file:s0
+/data/misc/sensor(/.*)?			u:object_r:sensors_data_file:s0

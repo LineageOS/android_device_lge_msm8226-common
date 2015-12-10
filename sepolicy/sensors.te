@@ -8,5 +8,5 @@ allow sensors apk_data_file:dir { write add_name remove_name };
 allow sensors apk_data_file:sock_file { setattr unlink write create };
 allow sensors input_device:chr_file { read open };
 allow sensors input_device:dir search;
-allow sensors sensors_data_file:fifo_file { read write unlink open setattr };
+allow sensors sensors_data_file:fifo_file { read write unlink open setattr create };
 allow sensors sensors_data_file:file { write open append setattr };
