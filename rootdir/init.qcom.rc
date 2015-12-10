@@ -352,10 +352,6 @@ on post-fs-data
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
-    #Restore context for sensros fifo
-    restorecon  /data/misc/sensor/fifo_cmd
-    restorecon  /data/misc/sensor/fifo_dat
-
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
