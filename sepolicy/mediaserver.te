@@ -6,4 +6,3 @@ allow mediaserver thermal-engine:unix_stream_socket connectto;
 allow mediaserver system_data_file:sock_file write;
 allow mediaserver init:unix_dgram_socket sendto;
 allow mediaserver system_file:file execmod;
-allow mediaserver unlabeled:dir search;
