@@ -329,10 +329,14 @@ static char *camera_fixup_getparams(int id, const char *settings)
     //Remove 720x480,720x540,1920x1440. Cause disturbed preview in Android 6.0.
     const char *supportedPreviewSizes = "1920x1080,1280x960,1280x800,1280x720,1024x768,1024x640,960x720,960x540,864x480,800x600,800x500,800x480,704x576,640x480,576x432,480x320,384x288,352x288,320x240";
     
+    const char *supportedPreviewSizesSelfie = "1280x960,1280x800,1280x720,1024x768,1024x640,960x720,960x540,864x480,800x600,800x500,800x480,720x480,704x576,640x480,576x432,480x320,384x288,352x288,320x240,240x160,176x144";
+
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
     if (BACK_CAMERA_ID == id) {
    	 params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, supportedPreviewSizes);
+    } else if (FRONT_CAMERA_ID == id) {
+   	 params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, supportedPreviewSizesSelfie);
     }
 /*
     ALOGV("%s %d: fixed parameters: ", __FUNCTION__, id);

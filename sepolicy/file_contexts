@@ -22,3 +22,4 @@
 /system/bin/bdaddr_loader	u:object_r:hwaddrs_exec:s0
 
 /data/misc/sensor(/.*)?			u:object_r:sensors_data_file:s0
+/system/lib/hw(/.*)?			u:object_r:unlabeled:s0
