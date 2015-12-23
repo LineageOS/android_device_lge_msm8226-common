@@ -24,6 +24,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.proc_nw_scan=0 \
     ro.use_data_netmgrd=true \
+    persist.data.netmgrd.qos.enable=true \
     ro.telephony.call_ring.multiple=0 \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
     rild.libargs=-d[SPACE]/dev/smd0 \
