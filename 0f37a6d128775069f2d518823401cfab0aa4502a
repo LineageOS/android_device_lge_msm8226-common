@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fce034c_73ef8f87",
+        "filename": "msm8226.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1187
+      },
+      "writtenOn": "2016-01-03T03:00:48Z",
+      "side": 1,
+      "message": "space",
+      "range": {
+        "startLine": 162,
+        "startChar": 29,
+        "endLine": 162,
+        "endChar": 30
+      },
+      "revId": "0f37a6d128775069f2d518823401cfab0aa4502a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fce034c_33e90780",
+        "filename": "msm8226.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1187
+      },
+      "writtenOn": "2016-01-03T03:00:48Z",
+      "side": 1,
+      "message": "This already included by android.",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 20
+      },
+      "revId": "0f37a6d128775069f2d518823401cfab0aa4502a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fce034c_b3e3b7a4",
+        "filename": "rootdir/init.qcom.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1187
+      },
+      "writtenOn": "2016-01-03T03:00:48Z",
+      "side": 1,
+      "message": "This prop already set by vendor init",
+      "revId": "0f37a6d128775069f2d518823401cfab0aa4502a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
