@@ -155,11 +155,12 @@ PRODUCT_PACKAGES += \
     hostapd.accept \
     hostapd.deny
 
-# Camera wrapper
+# Camera
 PRODUCT_PACKAGES += \
-    camera.msm8226
+    camera.msm8226 \
+    Snap
 
-ifeq ($(BOARD_HAS_NFC), true) 
+ifeq ($(BOARD_HAS_NFC), true)
 # NFC packages
 PRODUCT_PACKAGES += \
     NfcNci \
