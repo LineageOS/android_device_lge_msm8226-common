@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_9f49e361",
+        "filename": "sepolicy/platform_app.te",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 14387
+      },
+      "writtenOn": "2016-01-12T11:45:18Z",
+      "side": 1,
+      "message": "At morning i think it not so good...\nBut, i don\u0027t know about .so in /data:\n[   70.458631] type\u003d1400 audit(1452573682.509:8): avc:  denied  { execute } for  pid\u003d4300 comm\u003d\"uicksetsdk.lite\" path\u003d\"/data/data/com.uei.lg.quicksetsdk.lite/files/libqs_jni.so\" dev\u003d\"mmcblk0p34\" ino\u003d48855 scontext\u003du:r:platform_app:s0:c512,c768 tcontext\u003du:object_r:app_data_file:s0:c512,c768 tclass\u003dfile permissive\u003d0\n[   70.458810] type\u003d1400 audit(1452573682.509:8): avc: denied { execute } for pid\u003d4300 comm\u003d\"uicksetsdk.lite\" path\u003d\"/data/data/com.uei.lg.quicksetsdk.lite/files/libqs_jni.so\" dev\u003d\"mmcblk0p34\" ino\u003d48855 scontext\u003du:r:platform_app:s0:c512,c768 tcontext\u003du:object_r:app_data_file:s0:c512,c768 tclass\u003dfile permissive\u003d0",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "15f70600d1d14dbe9a3ab4ff904aa3063404165e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
