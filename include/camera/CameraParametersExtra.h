@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 The CyanogenMod Project
+ * Copyright (C) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,9 @@ const char CameraParameters::KEY_VIDEO_WDR_SUPPORTED[] = "video-wdr-supported"; 
 const char CameraParameters::VIDEO_WDR_OFF[] = "video-wdr"; \
 const char CameraParameters::VIDEO_WDR_ON[] = "video-wdr"; \
 const char CameraParameters::OBJECT_TRACKING_ON[] = "object-tracking"; \
-const char CameraParameters::OBJECT_TRACKING_OFF[] = "object-tracking";
+const char CameraParameters::OBJECT_TRACKING_OFF[] = "object-tracking"; \
+const char CameraParameters::KEY_LGE_CAMERA[] = "lge-camera";
+
 /*
 const char CameraParameters::FOCUS_MODE_MANUAL_POSITION[] = "manual";
 const char CameraParameters::WHITE_BALANCE_MANUAL_CCT[] = "manual-cct";
@@ -60,7 +62,8 @@ const char CameraParameters::WHITE_BALANCE_MANUAL_CCT[] = "manual-cct";
     static const char VIDEO_WDR_OFF[]; \
     static const char VIDEO_WDR_ON[]; \
     static const char OBJECT_TRACKING_ON[]; \
-    static const char OBJECT_TRACKING_OFF[];
+    static const char OBJECT_TRACKING_OFF[]; \
+    static const char KEY_LGE_CAMERA[];
 /*
     static const char FOCUS_MODE_MANUAL_POSITION[];
     static const char WHITE_BALANCE_MANUAL_CCT[];

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015, The CyanogenMod Project
+ * Copyright (C) 2016, The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -339,6 +339,8 @@ static char *camera_fixup_getparams(int id, const char *settings)
     } else if (FRONT_CAMERA_ID == id) {
    	 params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, supportedPreviewSizesSelfie);
     }
+
+    params.set(CameraParameters::KEY_LGE_CAMERA, "1");
 /*
     ALOGV("%s %d: fixed parameters: ", __FUNCTION__, id);
     params.dump();
