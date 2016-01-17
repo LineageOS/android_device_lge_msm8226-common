@@ -341,6 +341,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
     }
 
     params.set(CameraParameters::KEY_LGE_CAMERA, "1");
+    params.set(CameraParameters::DENOISE_ON_OFF_MODES_MAP, "denoise-off,denoise-on");
 /*
     ALOGV("%s %d: fixed parameters: ", __FUNCTION__, id);
     params.dump();
