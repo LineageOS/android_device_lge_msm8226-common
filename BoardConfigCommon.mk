@@ -152,6 +152,9 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true 
 
+# Recovery
+TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/fstab.qcom
+
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
