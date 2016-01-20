@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcbff3d_5c0a9226",
+        "filename": "liblgir/liblgir.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-20T01:50:48Z",
+      "side": 1,
+      "message": "tabs",
+      "revId": "2d93079ec8093b03d49a91eb4dc4140ff3ea1742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_1c040a17",
+        "filename": "liblgir/liblgir.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-20T01:50:48Z",
+      "side": 1,
+      "message": "tabs",
+      "revId": "2d93079ec8093b03d49a91eb4dc4140ff3ea1742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_bffe0803",
+        "filename": "liblgir/liblgir.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-20T01:50:48Z",
+      "side": 1,
+      "message": "tabs",
+      "revId": "2d93079ec8093b03d49a91eb4dc4140ff3ea1742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_df03d40c",
+        "filename": "rootdir/init.qcom.rc",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-20T01:50:48Z",
+      "side": 1,
+      "message": "Weird newline?",
+      "revId": "2d93079ec8093b03d49a91eb4dc4140ff3ea1742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_9f0d4c39",
+        "filename": "rootdir/init.qcom.rc",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-20T01:50:48Z",
+      "side": 1,
+      "message": "Can go in ueventd also.",
+      "revId": "2d93079ec8093b03d49a91eb4dc4140ff3ea1742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_7f08a027",
+        "filename": "rootdir/init.qcom.rc",
+        "patchSetId": 13
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-20T01:50:48Z",
+      "side": 1,
+      "message": "If this isn\u0027t marked oneshot, this will restart when killed anyway.",
+      "revId": "2d93079ec8093b03d49a91eb4dc4140ff3ea1742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcbff3d_5f0fe42d",
+        "filename": "sepolicy/init.te",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-01-20T01:50:48Z",
+      "side": 1,
+      "message": "That\u0027s weird, why is it init which wants these?",
+      "revId": "2d93079ec8093b03d49a91eb4dc4140ff3ea1742",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
