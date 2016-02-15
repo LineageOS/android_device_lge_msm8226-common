@@ -25,6 +25,7 @@
 
 #define LOG_TAG "CameraWrapper"
 #include <cutils/log.h>
+#include <cutils/properties.h>
 
 #include <utils/threads.h>
 #include <utils/String8.h>
@@ -59,7 +60,7 @@ camera_module_t HAL_MODULE_INFO_SYM = {
          .hal_api_version = HARDWARE_HAL_API_VERSION,
          .id = CAMERA_HARDWARE_MODULE_ID,
          .name = "LG MSM8226 Camera",
-         .author = "The CyanogenMod Project, Quarx2k",
+         .author = "The CyanogenMod Project, Quarx2k, NikitaProAndroid",
          .methods = &camera_module_methods,
          .dso = NULL, /* remove compilation warnings */
          .reserved = {0}, /* remove compilation warnings */
@@ -312,40 +313,49 @@ static int camera_cancel_picture(struct camera_device *device)
     return VENDOR_CALL(device, cancel_picture);
 }
 
-static int camera_set_parameters(struct camera_device *device,
-        const char *params)
-{
-    ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device,
-            (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
-
-    if (!device)
-        return -EINVAL;
-
-    return VENDOR_CALL(device, set_parameters, params);
-}
-
 static char *camera_fixup_getparams(int id, const char *settings)
 {
-    //Remove 720x480,720x540,1920x1440. Cause disturbed preview in Android 6.0.
+    /* Remove 720x480,720x540,1920x1440. Cause disturbed preview in Android 6.0. */
     const char *supportedPreviewSizes = "1920x1080,1280x960,1280x800,1280x720,1024x768,1024x640,960x720,960x540,864x480,800x600,800x500,800x480,704x576,640x480,576x432,480x320,384x288,352x288,320x240";
-    
-    //Remove 720x540,240x160. Cause disturbed preview in Android 6.0.
+
+    /* Remove 720x540,240x160. Cause disturbed preview in Android 6.0. */
     const char *supportedPreviewSizesSelfie = "1280x960,1280x800,1280x720,1024x768,1024x640,960x720,960x540,864x480,800x600,800x500,800x480,720x480,704x576,640x480,576x432,480x320,384x288,352x288,320x240,176x144";
+
+    char *sceneModes;
+    char board[PROPERTY_VALUE_MAX];
+    bool photoMode = true;
 
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
+
     if (BACK_CAMERA_ID == id) {
    	 params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, supportedPreviewSizes);
     } else if (FRONT_CAMERA_ID == id) {
    	 params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, supportedPreviewSizesSelfie);
     }
 
-    params.set(CameraParameters::KEY_LGE_CAMERA, "1");
+    if (params.get(CameraParameters::KEY_RECORDING_HINT)) {
+        photoMode = (!strcmp(params.get(CameraParameters::KEY_RECORDING_HINT), "false"));
+    }
+
+    property_get("ro.product.board", board, "ro.product.board not found!!!");
+
+    if (!strcmp(board, "g2m") || (!strcmp(board, "jagnm")) || (!strcmp(board, "jag3gds"))) {
+        /* Add fake HDR as supported scene mode in "scene-mode-values" */
+        if (photoMode) {
+            sceneModes = strdup(params.get(CameraParameters::KEY_SUPPORTED_SCENE_MODES));
+            if (sceneModes != NULL && strstr(sceneModes,"hdr") == NULL) {
+                strncat(sceneModes,",hdr",4);
+                params.set(CameraParameters::KEY_SUPPORTED_SCENE_MODES, sceneModes);
+            }
+            free(sceneModes);
+        }
+    } else {
+        ALOGW("HDR is not supported, device: %s", board);
+    }
+
     params.set(CameraParameters::DENOISE_ON_OFF_MODES_MAP, "denoise-off,denoise-on");
-/*
-    ALOGV("%s %d: fixed parameters: ", __FUNCTION__, id);
-    params.dump();
-*/
+
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
 
@@ -364,10 +374,54 @@ static char *camera_get_parameters(struct camera_device *device)
     char *params = VENDOR_CALL(device, get_parameters);
 
     char *tmp = camera_fixup_getparams(CAMERA_ID(device), params);
-    VENDOR_CALL(device, put_parameters, params);
     params = tmp;
 
     return params;
+}
+
+static char *camera_fixup_setparams(const char *settings)
+{
+    bool photoMode = true;
+    bool sceneModeHdr = false;
+
+    android::CameraParameters params;
+    params.unflatten(android::String8(settings));
+
+    if (params.get(CameraParameters::KEY_RECORDING_HINT)) {
+        photoMode = (!strcmp(params.get(CameraParameters::KEY_RECORDING_HINT), "false"));
+    }
+    if (photoMode) {
+        sceneModeHdr = (!strncmp(params.get(CameraParameters::KEY_SCENE_MODE), "hdr", 3));
+    }
+
+    /* Set "hdr-mode"="1" if fake hdr scene mode activated */
+    if (photoMode && sceneModeHdr) {
+        params.set(CameraParameters::KEY_HDR_MODE, "1");
+    } else {
+        params.set(CameraParameters::KEY_HDR_MODE, "0");
+    }
+
+    params.set(CameraParameters::KEY_LGE_CAMERA, "1");
+
+    android::String8 strParams = params.flatten();
+    char *ret = strdup(strParams.string());
+
+    return ret;
+
+}
+
+static int camera_set_parameters(struct camera_device *device,
+        const char *params)
+{
+    ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device,
+            (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
+
+    if (!device)
+        return -EINVAL;
+
+    char *tmp = camera_fixup_setparams(params);
+
+    return VENDOR_CALL(device, set_parameters, tmp);
 }
 
 static void camera_put_parameters(struct camera_device *device, char *params)

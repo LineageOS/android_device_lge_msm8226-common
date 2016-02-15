@@ -37,12 +37,8 @@ const char CameraParameters::OBJECT_TRACKING_ON[] = "object-tracking"; \
 const char CameraParameters::OBJECT_TRACKING_OFF[] = "object-tracking"; \
 const char CameraParameters::KEY_LGE_CAMERA[] = "lge-camera"; \
 const char CameraParameters::KEY_QC_DENOISE[] = "denoise"; \
-const char CameraParameters::DENOISE_ON_OFF_MODES_MAP[] = "denoise-values";
-
-/*
-const char CameraParameters::FOCUS_MODE_MANUAL_POSITION[] = "manual";
-const char CameraParameters::WHITE_BALANCE_MANUAL_CCT[] = "manual-cct";
-*/
+const char CameraParameters::DENOISE_ON_OFF_MODES_MAP[] = "denoise-values"; \
+const char CameraParameters::KEY_HDR_MODE[] = "hdr-mode";
 
 #define CAMERA_PARAMETERS_EXTRA_H \
     static const char AUDIO_ZOOM_OFF[]; \
@@ -67,9 +63,6 @@ const char CameraParameters::WHITE_BALANCE_MANUAL_CCT[] = "manual-cct";
     static const char OBJECT_TRACKING_OFF[]; \
     static const char KEY_LGE_CAMERA[]; \
     static const char KEY_QC_DENOISE[]; \
-    static const char DENOISE_ON_OFF_MODES_MAP[];
-/*
-    static const char FOCUS_MODE_MANUAL_POSITION[];
-    static const char WHITE_BALANCE_MANUAL_CCT[];
-*/
+    static const char DENOISE_ON_OFF_MODES_MAP[]; \
+    static const char KEY_HDR_MODE[];
 
