@@ -356,6 +356,10 @@ static char *camera_fixup_getparams(int id, const char *settings)
 
     params.set(CameraParameters::DENOISE_ON_OFF_MODES_MAP, "denoise-off,denoise-on");
 
+    /* Remove not supported options from camera apps */
+    params.set(CameraParameters::AUTO_HDR_SUPPORTED, "false");
+    params.set(CameraParameters::KEY_QC_SUPPORTED_AE_BRACKETING_MODES, "");
+
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
 
