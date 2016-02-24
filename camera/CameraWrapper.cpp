@@ -401,6 +401,7 @@ static char *camera_fixup_setparams(const char *settings)
     /* Set "hdr-mode"="1" if fake hdr scene mode activated */
     if (photoMode && sceneModeHdr) {
         params.set(CameraParameters::KEY_HDR_MODE, "1");
+        params.set(CameraParameters::KEY_QC_ZSL, "on");
     } else {
         params.set(CameraParameters::KEY_HDR_MODE, "0");
     }

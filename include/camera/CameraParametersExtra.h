@@ -40,7 +40,8 @@ const char CameraParameters::KEY_QC_DENOISE[] = "denoise"; \
 const char CameraParameters::DENOISE_ON_OFF_MODES_MAP[] = "denoise-values"; \
 const char CameraParameters::KEY_HDR_MODE[] = "hdr-mode"; \
 const char CameraParameters::AUTO_HDR_SUPPORTED[] = "auto-hdr-supported"; \
-const char CameraParameters::KEY_QC_SUPPORTED_AE_BRACKETING_MODES[] = "ae-bracket-hdr-values";
+const char CameraParameters::KEY_QC_SUPPORTED_AE_BRACKETING_MODES[] = "ae-bracket-hdr-values"; \
+const char CameraParameters::KEY_QC_ZSL[] = "zsl";
 
 #define CAMERA_PARAMETERS_EXTRA_H \
     static const char AUDIO_ZOOM_OFF[]; \
@@ -68,5 +69,6 @@ const char CameraParameters::KEY_QC_SUPPORTED_AE_BRACKETING_MODES[] = "ae-bracke
     static const char DENOISE_ON_OFF_MODES_MAP[]; \
     static const char KEY_HDR_MODE[]; \
     static const char AUTO_HDR_SUPPORTED[]; \
-    static const char KEY_QC_SUPPORTED_AE_BRACKETING_MODES[];
+    static const char KEY_QC_SUPPORTED_AE_BRACKETING_MODES[]; \
+    static const char KEY_QC_ZSL[];
 
