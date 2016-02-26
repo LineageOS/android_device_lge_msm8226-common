@@ -208,6 +208,8 @@ on boot
     # Vibration Control
     chown system system /sys/devices/platform/tspdrv/nforce_timed
     chmod 0666 /sys/devices/platform/tspdrv/nforce_timed
+    chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
+    chmod 0666 /sys/devices/virtual/timed_output/vibrator/vtg_level
 
     # Adaptive LMK
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1

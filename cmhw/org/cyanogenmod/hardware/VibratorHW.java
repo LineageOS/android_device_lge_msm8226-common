@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,29 +22,65 @@ import org.cyanogenmod.hardware.util.FileUtils;
 
 public class VibratorHW {
 
-    private static String NFORCE_PATH = "/sys/devices/platform/tspdrv/nforce_timed";
+    private static String TSPDRV_NFORCE_PATH = "/sys/devices/platform/tspdrv/nforce_timed";
+    private static String QPNP_NFORCE_PATH = "/sys/devices/virtual/timed_output/vibrator/vtg_level";
+    private static int control_type;
 
     public static boolean isSupported() {
-        File f = new File(NFORCE_PATH);
-        return f.exists();
+        File t = new File(TSPDRV_NFORCE_PATH);
+        File q = new File(QPNP_NFORCE_PATH);
+        if (t.exists()) {
+                control_type = 1;
+                return true;
+        } else if (q.exists()) {
+                control_type = 2;
+                return true;
+        } else {
+                return false;
+        }
     }
 
     public static int getMaxIntensity()  {
-        return 127;
+        if (control_type == 1) {
+                return 127;
+        } else {
+                return 31;
+        }
+
     }
     public static int getMinIntensity()  {
-        return 1;
+        if (control_type == 1) {
+                return 1;
+        } else {
+                return 12;
+        }
     }
     public static int getWarningThreshold()  {
-        return 90;
+        if (control_type == 1) {
+                return 90;
+        } else {
+                return -1;
+        }
     }
     public static int getCurIntensity()  {
-        return Integer.parseInt(FileUtils.readOneLine(NFORCE_PATH));
+        if (control_type == 1) {
+                return Integer.parseInt(FileUtils.readOneLine(TSPDRV_NFORCE_PATH));
+        } else {
+                return Integer.parseInt(FileUtils.readOneLine(QPNP_NFORCE_PATH));
+        }
     }
     public static int getDefaultIntensity()  {
-        return 65;
+        if (control_type == 1) {
+                return 65;
+        } else {
+                return 28;
+        }
     }
     public static boolean setIntensity(int intensity)  {
-        return FileUtils.writeLine(NFORCE_PATH, String.valueOf(intensity));
+        if (control_type == 1) {
+                return FileUtils.writeLine(TSPDRV_NFORCE_PATH, String.valueOf(intensity));
+        } else {
+                return FileUtils.writeLine(QPNP_NFORCE_PATH, String.valueOf(intensity));
+        }
     }
 }
