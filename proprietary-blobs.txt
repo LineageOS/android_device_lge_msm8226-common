@@ -5,7 +5,6 @@ bin/time_daemon
 -app/TimeService/TimeService.apk
 
 # Audio
-vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
