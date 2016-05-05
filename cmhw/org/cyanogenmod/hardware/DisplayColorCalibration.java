@@ -22,18 +22,39 @@ import org.cyanogenmod.hardware.util.FileUtils;
 
 public class DisplayColorCalibration {
     private static final String COLOR_FILE = "/sys/class/graphics/fb0/rgb";
+    private static final String KCAL_FILE = "/sys/class/graphics/fb0/kcal";
+    private static int control_type;
 
     public static boolean isSupported() {
         File f = new File(COLOR_FILE);
-        return f.exists();
+        File k = new File(KCAL_FILE);
+
+        if (f.exists()) {
+                control_type = 1;
+                return true;
+        } else if (k.exists()) {
+                control_type = 2;
+                return true;
+        } else {
+                return false;
+        }
+
     }
 
     public static int getMaxValue()  {
-        return 32768;
+        if (control_type == 1) {
+                return 32768;
+        } else {
+                return 255;
+        }
     }
 
     public static int getMinValue()  {
-        return 255;
+        if (control_type == 1) {
+                return 255;
+        } else {
+                return 35;
+        }
     }
 
     public static int getDefValue() {
@@ -41,10 +62,18 @@ public class DisplayColorCalibration {
     }
 
     public static String getCurColors()  {
-        return FileUtils.readOneLine(COLOR_FILE);
+        if (control_type == 1) {
+                return FileUtils.readOneLine(COLOR_FILE);
+        } else {
+                return FileUtils.readOneLine(KCAL_FILE);
+        }
     }
 
     public static boolean setColors(String colors) {
-        return FileUtils.writeLine(COLOR_FILE, colors);
+        if (control_type == 1) {
+                return FileUtils.writeLine(COLOR_FILE, colors);
+        } else {
+                return FileUtils.writeLine(KCAL_FILE, colors);
+        }
     }
 }
