@@ -63,7 +63,9 @@ on post-fs
     chmod 664 /sys/devices/virtual/input/lge_touch/ime_status
     chown system system /sys/devices/virtual/input/lge_touch/ime_status
     chown system system /sys/devices/virtual/graphics/fb0/rgb
+    chown system system /sys/devices/virtual/graphics/fb0/kcal
     chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
+    chmod 0660 /sys/devices/virtual/graphics/fb0/kcal
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
