@@ -216,7 +216,11 @@ on boot
     # Adaptive LMK
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
-    
+
+    #Sig motion sensor
+    chown system system /sys/class/sig_sensor/g_sensor/en_sig_motion
+    chmod 0660 /sys/class/sig_sensor/g_sensor/en_sig_motion
+
 on fs
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
