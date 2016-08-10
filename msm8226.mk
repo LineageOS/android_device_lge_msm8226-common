@@ -137,7 +137,10 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8226 \
     lights.msm8226 \
     memtrack.msm8226 \
-    power.msm8226
+    power.msm8226 \
+    sensors.msm8226 \
+    sensors.qcom
+
 
 # OMX
 PRODUCT_PACKAGES += \
