@@ -392,10 +392,12 @@ service bt-sap /system/bin/sapd 15
 service qmuxd /system/bin/qmuxd
     class main
     user radio
-    group radio audio bluetooth gps diag nfc
+    group radio audio bluetooth gps diag qcom_diag
 
 service netmgrd /system/bin/netmgrd
     class main
+    user root
+    group radio
 
 service sensors /system/bin/sensors.qcom
     class late_start

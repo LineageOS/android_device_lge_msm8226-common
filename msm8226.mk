@@ -108,7 +108,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libxml2 \
     libcurl \
-    libboringssl-compat
+    libboringssl-compat \
+    librmnetctl
+
 
 # Ebtables
 PRODUCT_PACKAGES += \
