@@ -40,7 +40,7 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_MEMCPY_BASE_OPT_DISABLE := true
 TARGET_CPU_VARIANT := krait
-MALLOC_IMPL := dlmalloc
+MALLOC_SVELTE := true
 USE_CLANG_PLATFORM_BUILD := true
 BOARD_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 BOARD_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
