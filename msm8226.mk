@@ -164,6 +164,10 @@ PRODUCT_PACKAGES += \
     hostapd.accept \
     hostapd.deny
 
+# Telephony-ext
+PRODUCT_PACKAGES += telephony-ext
+PRODUCT_BOOT_JARS += telephony-ext
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8226 \
