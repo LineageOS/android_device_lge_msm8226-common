@@ -143,13 +143,16 @@ PRODUCT_PACKAGES += \
     sensors.msm8226 \
     sensors.qcom
 
-
 # OMX
 PRODUCT_PACKAGES += \
     libOmxCore \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
+
+# Recovery
+PRODUCT_PACKAGES += \
+    imgdiff
 
 #wifi
 PRODUCT_PACKAGES += \
