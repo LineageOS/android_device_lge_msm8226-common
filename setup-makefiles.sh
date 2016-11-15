@@ -79,6 +79,8 @@ PRODUCT_PACKAGES += \\
 \$(call inherit-product, vendor/$VENDOR/$DEVICE/$DEVICE-vendor-blobs.mk)
 EOF
 
+printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8974/graphics/graphics-vendor.mk)" >> "$MAKEFILE"
+
 (cat << EOF) > ../../../$OUTDIR/BoardConfigVendor.mk
 # Copyright (C) 2014 The CyanogenMod Project
 #
