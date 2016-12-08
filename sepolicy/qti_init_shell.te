@@ -4,3 +4,7 @@ allow qti_init_shell unlabeled:file getattr;
 allow qti_init_shell vfat:file { read open };
 allow qti_init_shell unlabeled:dir search;
 allow qti_init_shell vfat:dir search;
+allow qti_init_shell bluetooth_loader_exec:file { read getattr open };
+allow qti_init_shell btnvtool_exec:file execute_no_trans;
+allow qti_init_shell hci_attach_dev:chr_file { read write getattr open ioctl };
+allow qti_init_shell hwaddrs_exec:file execute_no_trans;
