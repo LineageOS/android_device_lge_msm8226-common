@@ -1,1 +1,2 @@
 gsm.version.baseband		u:object_r:baseband_prop:s0
+persist.service.bdroid.bdaddr u:object_r:bluetooth_prop:s0

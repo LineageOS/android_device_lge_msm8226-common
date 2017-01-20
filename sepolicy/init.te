@@ -4,3 +4,9 @@ allow init self:process execmem;
 allow init labeledfs:filesystem remount;
 allow init lge_touch_sysfs:file { relabelto setattr };
 allow init socket_device:sock_file { create setattr };
+
+#FM BCM
+allow init hci_attach_dev:chr_file rw_file_perms;
+allow init brcm_uim_exec:file { execute getattr read open };
+allow init brcm_ldisc_sysfs:lnk_file { read };
+allow init uim:process { siginh noatsecure transition rlimitinh };
