@@ -51,13 +51,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.pcm.16bit.enable=true \
     audio.offload.pcm.24bit.enable=true \
     use.voice.path.for.pcm.voip=true \
-    persist.audio.calfile0=/etc/acdbdata/Bluetooth_cal.acdb \
-    persist.audio.calfile1=/etc/acdbdata/General_cal.acdb \
-    persist.audio.calfile2=/etc/acdbdata/Global_cal.acdb \
-    persist.audio.calfile3=/etc/acdbdata/Handset_cal.acdb \
-    persist.audio.calfile4=/etc/acdbdata/Hdmi_cal.acdb \
-    persist.audio.calfile5=/etc/acdbdata/Headset_cal.acdb \
-    persist.audio.calfile6=/etc/acdbdata/Speaker_cal.acdb
+    persist.audio.calfile0=/etc/ACDB/Bluetooth_cal.acdb \
+    persist.audio.calfile1=/etc/ACDB/General_cal.acdb \
+    persist.audio.calfile2=/etc/ACDB/Global_cal.acdb \
+    persist.audio.calfile3=/etc/ACDB/Handset_cal.acdb \
+    persist.audio.calfile4=/etc/ACDB/Hdmi_cal.acdb \
+    persist.audio.calfile5=/etc/ACDB/Headset_cal.acdb \
+    persist.audio.calfile6=/etc/ACDB/Speaker_cal.acdb
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
