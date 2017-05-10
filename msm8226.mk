@@ -125,10 +125,6 @@ PRODUCT_PACKAGES += keystore.msm8226
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
 
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8226
