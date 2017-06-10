@@ -1,3 +1,4 @@
+allow system_server baseband_prop:file read;
 allow system_server init:unix_stream_socket getopt;
 allow system_server kcal_dev:dir r_dir_perms;
 allow system_server kcal_dev:file rw_file_perms;
