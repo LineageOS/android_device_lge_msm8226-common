@@ -161,7 +161,9 @@ PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
     hostapd_default.conf \
     hostapd.accept \
-    hostapd.deny
+    hostapd.deny \
+    libQWiFiSoftApCfg \
+    wificond
 
 # Telephony-ext
 PRODUCT_PACKAGES += telephony-ext
