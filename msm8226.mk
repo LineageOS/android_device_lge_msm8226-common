@@ -105,6 +105,12 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     tinymix
 
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.broadcastradio@1.0-impl \
+    android.hardware.soundtrigger@2.0-impl
+
 # Misc dependency packages
 PRODUCT_PACKAGES += \
     libxml2 \
