@@ -135,6 +135,10 @@ PRODUCT_PACKAGES += charger charger_res_images
 PRODUCT_PACKAGES += \
     gps.msm8226
 
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl
+
 # HAL
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
@@ -143,6 +147,11 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.memtrack@1.0-impl \
     android.hardware.light@2.0-impl \
+    android.hardware.camera.provider@2.4-impl \
+    camera.device@3.2-impl \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.power@1.0-impl \
     copybit.msm8226\
     gralloc.msm8226 \
     hwcomposer.msm8226 \
@@ -151,6 +160,22 @@ PRODUCT_PACKAGES += \
     power.msm8226 \
     sensors.msm8226 \
     sensors.qcom
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
+# GNSS HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service \
+
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
     
 # RenderScript HAL
 PRODUCT_PACKAGES += \
