@@ -105,6 +105,12 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     tinymix
 
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.broadcastradio@1.0-impl \
+    android.hardware.soundtrigger@2.0-impl
+
 # Misc dependency packages
 PRODUCT_PACKAGES += \
     libxml2 \
@@ -129,8 +135,23 @@ PRODUCT_PACKAGES += charger charger_res_images
 PRODUCT_PACKAGES += \
     gps.msm8226
 
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl
+
 # HAL
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.light@2.0-impl \
+    android.hardware.camera.provider@2.4-impl \
+    camera.device@3.2-impl \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.power@1.0-impl \
     copybit.msm8226\
     gralloc.msm8226 \
     hwcomposer.msm8226 \
@@ -139,6 +160,26 @@ PRODUCT_PACKAGES += \
     power.msm8226 \
     sensors.msm8226 \
     sensors.qcom
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
+# GNSS HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service \
+
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+    
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -150,6 +191,10 @@ PRODUCT_PACKAGES += \
 # Recovery
 PRODUCT_PACKAGES += \
     imgdiff
+    
+# WiFi HAL
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service
 
 #wifi
 PRODUCT_PACKAGES += \
@@ -161,11 +206,17 @@ PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
     hostapd_default.conf \
     hostapd.accept \
-    hostapd.deny
+    hostapd.deny \
+    libQWiFiSoftApCfg \
+    wificond
 
 # Telephony-ext
 PRODUCT_PACKAGES += telephony-ext
 PRODUCT_BOOT_JARS += telephony-ext
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl
 
 # Camera
 PRODUCT_PACKAGES += \
