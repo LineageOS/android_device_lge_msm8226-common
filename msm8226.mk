@@ -150,6 +150,10 @@ PRODUCT_PACKAGES += \
 # Recovery
 PRODUCT_PACKAGES += \
     imgdiff
+    
+# WiFi HAL
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service
 
 #wifi
 PRODUCT_PACKAGES += \
