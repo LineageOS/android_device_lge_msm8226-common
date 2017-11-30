@@ -27,3 +27,6 @@
 /system/vendor/bin/brcm-uim-sysfs  u:object_r:brcm_uim_exec:s0
 /dev/ttyHS99                       u:object_r:hci_attach_dev:s0
 /dev/brcm_bt_drv                   u:object_r:hci_attach_dev:s0
+
+#Metadata block device
+/dev/block/platform/msm_sdcc\.1/by-name/encrypt u:object_r:metadata_block_device:s0
