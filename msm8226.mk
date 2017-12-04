@@ -119,6 +119,13 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
+# IRRC
+ifeq ($(BOARD_HAS_LG_IRRC),true)
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml
+PRODUCT_PACKAGES += consumerir.msm8226
+endif
+
 # Keystore
 PRODUCT_PACKAGES += keystore.msm8226
 
