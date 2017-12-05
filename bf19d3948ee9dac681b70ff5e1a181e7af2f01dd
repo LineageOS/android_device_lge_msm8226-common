@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0ada2b7_6ac68eda",
+        "filename": "consumerir/consumerir.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2017-12-05T14:08:34Z",
+      "side": 1,
+      "message": "That doesn\u0027t look like English, does it?",
+      "range": {
+        "startLine": 160,
+        "startChar": 11,
+        "endLine": 160,
+        "endChar": 67
+      },
+      "revId": "bf19d3948ee9dac681b70ff5e1a181e7af2f01dd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
